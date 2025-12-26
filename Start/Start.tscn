@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1j2s6tomrars"]
+
+[ext_resource type="Texture2D" uid="uid://3vrwsfwlfboa" path="res://Start/Assets/DodgeHeroTitle.png" id="1_cha0i"]
+[ext_resource type="PackedScene" uid="uid://bggcqosa7oi7m" path="res://Global/Assets/UI/WideRoundedButton/WideRoundedButton.tscn" id="1_j0ik2"]
+[ext_resource type="Script" uid="uid://sx2bd0mi8w44" path="res://Start/Scripts/StartController.cs" id="1_pdy25"]
+[ext_resource type="PackedScene" uid="uid://b5sjvb3ok7coa" path="res://Global/Assets/UI/WideRoundedButton/WideRoundedButtonLabel.tscn" id="3_hspai"]
+
+[node name="Start" type="Node2D" node_paths=PackedStringArray("playButton", "quitButton")]
+script = ExtResource("1_pdy25")
+playButton = NodePath("CanvasLayer/PlayButton")
+quitButton = NodePath("CanvasLayer/QuitButton")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_cha0i")
+
+[node name="QuitButton" parent="CanvasLayer" instance=ExtResource("1_j0ik2")]
+offset_top = 854.0
+offset_bottom = 1002.0
+focus_neighbor_top = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../PlayButton")
+
+[node name="Label" parent="CanvasLayer/QuitButton" instance=ExtResource("3_hspai")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 0.0
+offset_right = 431.0
+offset_bottom = 134.0
+text = "QUIT"
+
+[node name="PlayButton" parent="CanvasLayer" instance=ExtResource("1_j0ik2")]
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../QuitButton")
+grabFocusOnReady = true
+
+[node name="Label" parent="CanvasLayer/PlayButton" instance=ExtResource("3_hspai")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 0.0
+offset_right = 431.0
+offset_bottom = 137.0

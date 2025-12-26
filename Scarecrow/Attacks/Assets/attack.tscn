@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8wy5sa7l8qe5"]
+
+[ext_resource type="Script" uid="uid://dmai8ivyh7w3b" path="res://Scarecrow/Attacks/Scripts/AttackChallenge.cs" id="1_j768s"]
+[ext_resource type="Texture2D" uid="uid://cokwc5dqglpuo" path="res://Global/Assets/Level/arrow.png" id="2_v812q"]
+
+[node name="Attack" type="Node2D" node_paths=PackedStringArray("arrow")]
+script = ExtResource("1_j768s")
+arrow = NodePath("Arrow")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+texture = ExtResource("2_v812q")

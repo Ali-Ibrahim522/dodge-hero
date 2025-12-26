@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://ferwju03mt44"]
+
+[ext_resource type="Texture2D" uid="uid://bu3a5kn7w2d6" path="res://Scarecrow/Assets/Background.png" id="1_pf6ah"]
+[ext_resource type="Script" uid="uid://c6m3s2i0qgtrc" path="res://Global/Scripts/Level/LevelController.cs" id="1_w6wgs"]
+[ext_resource type="PackedScene" uid="uid://35ru6a7cyj0k" path="res://Scarecrow/Attacks/Assets/attacks.tscn" id="2_8dqof"]
+[ext_resource type="Script" uid="uid://c6chj58lve2vp" path="res://Scarecrow/Targets/Scripts/TargetSystem.cs" id="3_i0pru"]
+[ext_resource type="PackedScene" uid="uid://bvoq25u0h7p6s" path="res://Scarecrow/Targets/Assets/target.tscn" id="4_w6wgs"]
+[ext_resource type="Texture2D" uid="uid://cpdgdu0wukc3r" path="res://Global/Assets/Level/X.png" id="13_mi2sm"]
+
+[node name="ScarecrowEasy" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Level" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("1_w6wgs")
+
+[node name="mouse" type="RayCast2D" parent="CanvasLayer/Level"]
+target_position = Vector2(0, 0)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Level"]
+position = Vector2(960, 540)
+texture = ExtResource("1_pf6ah")
+
+[node name="Health" type="Node2D" parent="CanvasLayer/Level"]
+position = Vector2(1240, 209)
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/Level/Health"]
+position = Vector2(49, -2)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("13_mi2sm")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/Level/Health"]
+texture = ExtResource("13_mi2sm")
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/Level/Health"]
+position = Vector2(-44, 1)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("13_mi2sm")
+
+[node name="Attacks" parent="CanvasLayer/Level" instance=ExtResource("2_8dqof")]
+
+[node name="Targets" type="Node" parent="CanvasLayer/Level" node_paths=PackedStringArray("targets", "mouse")]
+script = ExtResource("3_i0pru")
+targets = [NodePath("T1"), NodePath("T2"), NodePath("T3"), NodePath("T4"), NodePath("T5"), NodePath("T6")]
+mouse = NodePath("../mouse")
+
+[node name="T1" parent="CanvasLayer/Level/Targets" instance=ExtResource("4_w6wgs")]
+position = Vector2(161, 831)
+scale = Vector2(1.5, 1.5)
+
+[node name="T2" parent="CanvasLayer/Level/Targets" instance=ExtResource("4_w6wgs")]
+position = Vector2(375, 507)
+
+[node name="T3" parent="CanvasLayer/Level/Targets" instance=ExtResource("4_w6wgs")]
+position = Vector2(632.00006, 680)
+scale = Vector2(1.25, 1.25)
+
+[node name="T4" parent="CanvasLayer/Level/Targets" instance=ExtResource("4_w6wgs")]
+position = Vector2(1308, 838)
+scale = Vector2(-1.5, 1.5)
+
+[node name="T5" parent="CanvasLayer/Level/Targets" instance=ExtResource("4_w6wgs")]
+position = Vector2(1504, 513)
+scale = Vector2(-1, 1)
+
+[node name="T6" parent="CanvasLayer/Level/Targets" instance=ExtResource("4_w6wgs")]
+position = Vector2(1772, 682)
+scale = Vector2(-1.25, 1.25)

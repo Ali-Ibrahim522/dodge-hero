@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cv0mwv75h6saf"
+path="res://.godot/imported/bitmap.png-e351ee6b00fa8173161f405b6a95edbd.res"
+
+[deps]
+
+source_file="res://Global/Assets/UI/WideRoundedButton/bitmap.png"
+dest_files=["res://.godot/imported/bitmap.png-e351ee6b00fa8173161f405b6a95edbd.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://35ru6a7cyj0k"]
+
+[ext_resource type="Script" uid="uid://5ddc1urldm6d" path="res://Scarecrow/Attacks/Scripts/AttackSystem.cs" id="1_wprb3"]
+[ext_resource type="PackedScene" uid="uid://b8wy5sa7l8qe5" path="res://Scarecrow/Attacks/Assets/attack.tscn" id="2_ncfvl"]
+[ext_resource type="Texture2D" uid="uid://baht2ij6uaflu" path="res://Scarecrow/Attacks/Assets/uAttackPre.png" id="3_ftiwh"]
+[ext_resource type="Texture2D" uid="uid://cmey1oepppl2w" path="res://Scarecrow/Attacks/Assets/uAttackPost.png" id="4_l06lu"]
+[ext_resource type="Texture2D" uid="uid://cgqg2uiqxje07" path="res://Scarecrow/Attacks/Assets/dAttackPre.png" id="5_15bfv"]
+[ext_resource type="Texture2D" uid="uid://wb3afsl05y4n" path="res://Scarecrow/Attacks/Assets/dAttackPost.png" id="6_vyaiu"]
+[ext_resource type="Texture2D" uid="uid://b83yf83nu6jpg" path="res://Scarecrow/Attacks/Assets/rAttackPre.png" id="7_y3ws8"]
+[ext_resource type="Texture2D" uid="uid://8pyevlj2m8gp" path="res://Scarecrow/Attacks/Assets/rAttackPost.png" id="8_ortwu"]
+[ext_resource type="Texture2D" uid="uid://bsm62yjado0bn" path="res://Scarecrow/Attacks/Assets/lAttackPre.png" id="9_m6jfp"]
+[ext_resource type="Texture2D" uid="uid://wcmqe4lgo8c0" path="res://Scarecrow/Attacks/Assets/lAttackPost.png" id="10_walne"]
+
+[node name="Attacks" type="Node" node_paths=PackedStringArray("challenges", "attack")]
+script = ExtResource("1_wprb3")
+challenges = [NodePath("Up"), NodePath("Down"), NodePath("Right"), NodePath("Left")]
+attack = NodePath("Attack")
+
+[node name="Attack" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="Up" parent="." instance=ExtResource("2_ncfvl")]
+position = Vector2(950, 140)
+scale = Vector2(1.25, 1.25)
+pre = ExtResource("3_ftiwh")
+post = ExtResource("4_l06lu")
+
+[node name="Down" parent="." instance=ExtResource("2_ncfvl")]
+position = Vector2(950, 810)
+rotation = -3.1415925
+scale = Vector2(1.25, 1.25)
+input = 1
+pre = ExtResource("5_15bfv")
+post = ExtResource("6_vyaiu")
+
+[node name="Right" parent="." instance=ExtResource("2_ncfvl")]
+position = Vector2(1260, 440)
+rotation = 1.5707964
+scale = Vector2(1.25, 1.25)
+input = 3
+pre = ExtResource("7_y3ws8")
+post = ExtResource("8_ortwu")
+
+[node name="Left" parent="." instance=ExtResource("2_ncfvl")]
+position = Vector2(660, 440)
+rotation = -1.5707964
+scale = Vector2(1.25, 1.25)
+input = 2
+pre = ExtResource("9_m6jfp")
+post = ExtResource("10_walne")
